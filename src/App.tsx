@@ -8,6 +8,10 @@ import weWork from "./wework.svg";
 import facebook from "./facebook.png";
 import google from "./google.png";
 import {Topics} from "./types";
+import AmazonPage from "./AmazonPage";
+import WeWorkPage from "./WeWorkPage";
+import FacebookPage from "./FacebookPage";
+import GooglePage from "./GooglePage";
 
 const styles = {
   App: {
@@ -45,22 +49,26 @@ const topics: Topics = {
   labor: {
     href: "/labor",
     color: "#ff9900",
-    logo: amazon
+    logo: amazon,
+    page: AmazonPage
   },
   funding: {
     href: "/funding",
     color: "rgb(255, 182, 0)",
-    logo: weWork
+    logo: weWork,
+    page: WeWorkPage
   },
   addiction: {
     href: "/addiction",
     color: "#4267B2",
-    logo: facebook
+    logo: facebook,
+    page: FacebookPage
   },
   data: {
     href: "/data",
     color: "#0F9D58",
-    logo: google
+    logo: google,
+    page: GooglePage
   }
 };
 
