@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/superficial-seamlessness/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/superficial-seamlessness/static/js/main.dea0863c.chunk.js",
+    "main.js.map": "/superficial-seamlessness/static/js/main.dea0863c.chunk.js.map",
+    "runtime-main.js": "/superficial-seamlessness/static/js/runtime-main.b087739f.js",
+    "runtime-main.js.map": "/superficial-seamlessness/static/js/runtime-main.b087739f.js.map",
+    "static/js/2.73bfcd2e.chunk.js": "/superficial-seamlessness/static/js/2.73bfcd2e.chunk.js",
+    "static/js/2.73bfcd2e.chunk.js.map": "/superficial-seamlessness/static/js/2.73bfcd2e.chunk.js.map",
+    "index.html": "/superficial-seamlessness/index.html",
+    "precache-manifest.f37576f20ee8fe83ba6bb086fb62466f.js": "/superficial-seamlessness/precache-manifest.f37576f20ee8fe83ba6bb086fb62466f.js",
+    "service-worker.js": "/superficial-seamlessness/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/superficial-seamlessness/static/css/main.5ecd60fb.chunk.css.map",
+    "static/media/amazon.png": "/superficial-seamlessness/static/media/amazon.a5e4c2cb.png",
+    "static/media/google.png": "/superficial-seamlessness/static/media/google.d45480e1.png",
+    "static/media/shoshana_zuboff.jpg": "/superficial-seamlessness/static/media/shoshana_zuboff.687578a2.jpg",
+    "static/media/wework.svg": "/superficial-seamlessness/static/media/wework.3e5aed27.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b087739f.js",
+    "static/js/2.73bfcd2e.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.dea0863c.chunk.js"
+  ]
+}
