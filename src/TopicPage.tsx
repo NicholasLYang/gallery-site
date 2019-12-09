@@ -2,6 +2,7 @@ import React from "react"
 import { useParams } from "react-router-dom";
 import withStyles, {WithStyles} from "react-jss";
 import {Topic, Topics} from "./types";
+import {useSpring, animated} from "react-spring";
 
 const styles = {
   TopicPage: {
@@ -13,7 +14,8 @@ const styles = {
     height: "12vw",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginBottom: "20px"
   },
   logo: {
     maxWidth: "10vw",
@@ -21,7 +23,6 @@ const styles = {
   },
   topicContent: {
     width: "60vw",
-    fontSize: "1.2em",
     lineHeight: "1.2em"
   }
 }
@@ -40,15 +41,20 @@ const TopicPage: React.FC<Props & WithStyles<typeof styles>> = ({ classes, topic
     throw new Error("Topic should not be null!")
   }
   const topic: Topic = getIn<Topics, keyof Topics>(topics, topicName as keyof Topics);
-  return (<div className={classes.TopicPage}>
+  const props = useSpring({
+    // This is objectively terrible code.
+    opacity: 1,
+    from: { opacity: 0 }
+  });
+  return (<animated.div style={props} className={classes.TopicPage}>
     <h1> {topicName.toUpperCase()} </h1>
     <div className={classes.logoContainer} style={{ backgroundColor: topic.color}}>
-      <img className={classes.logo} src={topic.logo} />
+      <img className={classes.logo} src={topic.logo} alt={`Logo for ${topic.company}`} />
     </div>
     <div className={classes.topicContent}>
     <topic.page />
     </div>
-  </div>)
+  </animated.div>)
 }
 
 export default withStyles(styles)(TopicPage);

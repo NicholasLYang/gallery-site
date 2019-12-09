@@ -1,7 +1,7 @@
 import React, { Dispatch, useRef } from "react";
 import withStyles, { WithStyles } from "react-jss";
 import { delay } from "./utils";
-import { ActionTypes, BlockState, BlockType } from "./HomePage";
+import { ActionTypes, BlockState, BlockType } from "./GalleryPage";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -24,7 +24,7 @@ const styles = {
     fontStyle: "normal",
     textDecoration: "none",
     transition: "background-color 0.3s, border 0.3s",
-    border: (props: Props) => `4px solid ${props.color}`,
+    border: (props: Props) => `6px solid ${props.color}`,
     gridArea: (props: Props) => props.name,
     margin: "10px"
   },

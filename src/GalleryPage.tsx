@@ -2,9 +2,10 @@ import React, { useReducer } from "react";
 import withStyles, { WithStyles } from "react-jss";
 import GridElement from "./GridElement";
 import {Topics} from "./types";
+import {useSpring, animated} from "react-spring";
 
 const styles = {
-  HomePage: {
+  GalleryPage: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -75,10 +76,15 @@ interface Props extends WithStyles<typeof styles> {
   topics: Topics
 }
 
-const HomePage: React.FC<Props> = ({ classes, topics }) => {
+const GalleryPage: React.FC<Props> = ({ classes, topics }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const props = useSpring({
+    // This is objectively terrible code.
+    opacity: 1,
+    from: { opacity: 0 }
+  });
   return (
-    <div className={classes.HomePage}>
+    <animated.div style={props} className={classes.GalleryPage}>
       <div className={classes.floorPlan}>
         <GridElement
           name="addiction"
@@ -109,8 +115,8 @@ const HomePage: React.FC<Props> = ({ classes, topics }) => {
           {...topics.labor}
         />
       </div>
-    </div>
+    </animated.div>
   );
 };
 
-export default withStyles(styles)(HomePage);
+export default withStyles(styles)(GalleryPage);

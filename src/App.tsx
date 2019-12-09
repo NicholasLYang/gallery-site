@@ -1,7 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import withStyles, { WithStyles } from "react-jss";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
-import HomePage from "./HomePage";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import TopicPage from "./TopicPage";
 import amazon from "./amazon.png";
 import weWork from "./wework.svg";
@@ -12,6 +11,9 @@ import AmazonPage from "./AmazonPage";
 import WeWorkPage from "./WeWorkPage";
 import FacebookPage from "./FacebookPage";
 import GooglePage from "./GooglePage";
+import AboutPage from "./AboutPage";
+import SplashPage from "./SplashPage";
+import GalleryPage from "./GalleryPage";
 
 const styles = {
   App: {
@@ -41,7 +43,8 @@ const styles = {
     }
   },
   mainContent: {
-    width: "60vw"
+    width: "60vw",
+    fontSize: "1.2em"
   }
 };
 
@@ -49,30 +52,39 @@ const topics: Topics = {
   labor: {
     href: "/labor",
     color: "#ff9900",
+    company: "Amazon",
     logo: amazon,
     page: AmazonPage
   },
   funding: {
     href: "/funding",
     color: "rgb(255, 182, 0)",
+    company: "WeWork",
     logo: weWork,
     page: WeWorkPage
   },
   addiction: {
     href: "/addiction",
     color: "#4267B2",
+    company: "Facebook",
     logo: facebook,
     page: FacebookPage
   },
   data: {
     href: "/data",
     color: "#0F9D58",
+    company: "Google",
     logo: google,
     page: GooglePage
   }
 };
 
 const App: React.FC<WithStyles<typeof styles>> = ({ classes }) => {
+  const [displaySplash, setDisplaySplash] = useState(true);
+
+  if (displaySplash) {
+    return <SplashPage skipSplash={() => setDisplaySplash(false)}/>
+  }
   return (
     <Router>
       <div className={classes.App}>
@@ -93,12 +105,17 @@ const App: React.FC<WithStyles<typeof styles>> = ({ classes }) => {
           </div>
         </header>
         <div className={classes.mainContent}>
+          <Switch>
+          <Route path="/about">
+            <AboutPage/>
+          </Route>
           <Route path="/:topicName">
             <TopicPage topics={topics}/>
           </Route>
-          <Route exact path="/">
-            <HomePage topics={topics} />
+          <Route path="/">
+            <GalleryPage topics={topics} />
           </Route>
+          </Switch>
         </div>
       </div>
     </Router>
